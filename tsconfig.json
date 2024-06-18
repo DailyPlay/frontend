@@ -7,7 +7,8 @@
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@navigation/*": ["navigation/*"],
-      "@screens/*": ["screens/*"]
+      "@screens/*": ["screens/*"],
+      "@theme/*": ["theme/*"]
     }
   }
 }
