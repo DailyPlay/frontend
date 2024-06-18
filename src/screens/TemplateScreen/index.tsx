@@ -1,11 +1,13 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Text} from 'react-native';
+
+import * as s from './style';
 
 const Template = () => {
   return (
-    <View>
+    <s.Container>
       <Text>템플릿</Text>
-    </View>
+    </s.Container>
   );
 };
 
