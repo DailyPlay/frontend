@@ -32,7 +32,7 @@ type TColor =
   | 'neutral100'
   | 'neutral50';
 
- export interface iTheme {
+export interface iTheme {
   color: {
     [key in TColor]: string;
   };

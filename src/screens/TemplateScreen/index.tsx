@@ -1,12 +1,12 @@
 import React from 'react';
-import {Text} from 'react-native';
 
 import * as s from './style';
+import TextComponent from '@/components/Text';
 
 const Template = () => {
   return (
     <s.Container>
-      <Text>템플릿</Text>
+      <TextComponent fontType="bodyLarge">테스팅</TextComponent>
     </s.Container>
   );
 };
