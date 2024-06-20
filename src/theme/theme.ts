@@ -21,6 +21,7 @@ type TColor =
   | 'gray200'
   | 'gray100'
   | 'gray50'
+  | 'white'
   | 'neutral900'
   | 'neutral800'
   | 'neutral700'
@@ -62,6 +63,7 @@ const theme: iTheme = {
     gray200: '#d1d1d1',
     gray100: '#e7e7e7',
     gray50: '#f6f6f6',
+    white: '#ffffff',
     neutral900: '#101828',
     neutral800: '#1d2939',
     neutral700: '#344054',
