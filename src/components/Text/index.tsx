@@ -2,20 +2,21 @@ import React from 'react';
 import {IFontProps, IFontStyle, TFont} from './textType';
 import styled from '@emotion/native';
 
-const TextComponent = React.memo((props: IFontProps) => {
-  const {fontType, children, color} = props;
+const TextComponent = (props: IFontProps) => {
+  const {fontType, children, color, margin} = props;
   return (
-    <StyledText {...fontStyle[fontType]} color={color}>
+    <StyledText {...fontStyle[fontType]} color={color} margin={margin}>
       {children}
     </StyledText>
   );
-});
+};
 
 const StyledText = styled.Text<IFontStyle>`
   font-size: ${({fontSize}) => fontSize};
   line-height: ${({lineHeight}) => lineHeight};
   font-weight: ${({fontWeight}) => fontWeight};
   color: ${({color, theme}) => (color ? color : theme.color.black)};
+  ${({margin}) => (margin ? `margin: ${margin}` : null)};
 `;
 
 const fontStyle: Record<TFont, IFontStyle> = {

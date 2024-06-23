@@ -23,10 +23,12 @@ export interface IFontStyle {
   lineHeight: string;
   fontWeight: number;
   color?: string;
+  margin?: string;
 }
 
 export interface IFontProps {
   fontType: TFont;
   children: string | string[] | number;
   color?: string;
+  margin?: string;
 }
