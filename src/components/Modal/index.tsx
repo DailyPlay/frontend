@@ -40,9 +40,8 @@ function ModalComponent({
           </StyleModalContentContainer>
           <StyleModalButtonsContainer>
             {buttons.map((button, index) => (
-              <StyledModalButton onPress={button.onPress}>
+              <StyledModalButton onPress={button.onPress} key={index}>
                 <TextComponent
-                  key={index}
                   fontType="buttonMedium"
                   color={
                     button.highlight ?? true
