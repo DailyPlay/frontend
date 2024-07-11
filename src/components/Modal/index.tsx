@@ -13,7 +13,7 @@ interface ModalComponentProps {
 }
 
 function ModalComponent({
-  isVisible = true,
+  isVisible,
   hide,
   title,
   messages,
