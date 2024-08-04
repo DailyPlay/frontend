@@ -11,6 +11,7 @@ import {ThemeProvider} from '@emotion/react';
 
 import theme from '@/theme/theme';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {ModalProvider} from '@/components/Modal/ModalContext';
 
 function App(): React.JSX.Element {
   const queryClient = new QueryClient({
@@ -23,7 +24,9 @@ function App(): React.JSX.Element {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
-        <Navigation />
+        <ModalProvider>
+          <Navigation />
+        </ModalProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );

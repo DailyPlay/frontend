@@ -7,8 +7,6 @@ import SplashScreen from 'react-native-splash-screen';
 const Stack = createStackNavigator();
 
 const Navigation = () => {
-  // splash screen test
-
   useEffect(() => {
     const splashTimer = setTimeout(() => {
       SplashScreen.hide();
