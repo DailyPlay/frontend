@@ -28,7 +28,7 @@ const Main = ({navigation}: {navigation: any}) => {
         />
         <Button.Gradient
           label="label"
-          onPress={() => navigation.navigate('diaryStack')}
+          onPress={() => navigation.navigate('loginStack')}
         />
       </s.ButtonWrapper>
       <s.IconsWrapper>
