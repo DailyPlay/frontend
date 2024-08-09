@@ -23,7 +23,7 @@ const Navigation = () => {
     <BasicLayout>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="mainStack"
+          initialRouteName="loginStack"
           screenOptions={{headerShown: false}}>
           <Stack.Screen name="mainStack" component={MainStack} />
           <Stack.Screen name="diaryStack" component={DiaryStack} />

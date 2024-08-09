@@ -3,7 +3,7 @@ import {Dimensions, Image} from 'react-native';
 import * as s from './style';
 import TextComponent from '@/components/Text';
 
-const Template = () => {
+const Template = ({navigation}: {navigation: any}) => {
   const [imgHeight, setImgHeight] = useState(0);
 
   const backgroundImage = require('@assets/images/introductionBackground.png');
@@ -34,7 +34,7 @@ const Template = () => {
         <s.LoginIcon />
         <s.LoginIcon />
       </s.IconWrapper>
-      <s.GuestTextBox>
+      <s.GuestTextBox onPress={() => navigation.navigate('mainStack')}>
         <TextComponent fontType="titleSmall" color="#667580">
           또는 게스트로 시작하기
         </TextComponent>
