@@ -7,6 +7,7 @@ import styled from '@emotion/native';
 // import navigator
 import MainStack from './MainStack';
 import DiaryStack from './DiaryStack';
+import LoginStack from './LoginStack';
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,7 @@ const Navigation = () => {
           screenOptions={{headerShown: false}}>
           <Stack.Screen name="mainStack" component={MainStack} />
           <Stack.Screen name="diaryStack" component={DiaryStack} />
+          <Stack.Screen name="loginStack" component={LoginStack} />
         </Stack.Navigator>
       </NavigationContainer>
     </BasicLayout>
