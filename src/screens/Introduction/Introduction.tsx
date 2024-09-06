@@ -34,7 +34,7 @@ const Template = ({navigation}: {navigation: any}) => {
         <s.LoginIcon />
         <s.LoginIcon />
       </s.IconWrapper>
-      <s.GuestTextBox onPress={() => navigation.navigate('mainStack')}>
+      <s.GuestTextBox onPress={() => navigation.navigate('termsOfUse')}>
         <TextComponent fontType="titleSmall" color="#667580">
           또는 게스트로 시작하기
         </TextComponent>
