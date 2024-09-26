@@ -3,5 +3,3 @@ export interface IButtonProps {
   disabled?: boolean;
   onPress: () => void;
 }
-
-export type TypeGlBtnProps = Omit<IButtonProps, 'disabled'>;
