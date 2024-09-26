@@ -11,7 +11,9 @@ const Gradient = (props: IButtonProps) => {
   const {label, disabled, onPress} = props;
 
   return (
-    <s.GradientContainer onPress={disabled ? undefined : onPress}>
+    <s.GradientContainer
+      activeOpacity={disabled ? 1 : 0}
+      onPress={disabled ? undefined : onPress}>
       <s.GradientBox
         start={{x: 0, y: 0}}
         end={{x: 1, y: 0}}
