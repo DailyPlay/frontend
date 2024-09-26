@@ -1,5 +1,5 @@
 import React, {useCallback, useMemo, useState} from 'react';
-import {Image} from 'react-native';
+import {Alert, Image} from 'react-native';
 
 // import style
 import * as s from './style';
@@ -24,7 +24,7 @@ const listRows: IAgreementListType[] = [
   {isRequired: false, label: '마케팅 정보 수신 동의', isAgree: false},
 ];
 
-const TermsOfUse = () => {
+const TermsOfUse = ({navigation}: {navigation: any}) => {
   const [agreeList, setAgreeList] = useState<IAgreementListType[]>(listRows);
 
   const backgroundImage = require('@assets/images/logo/threeSymbols.png');
@@ -46,6 +46,14 @@ const TermsOfUse = () => {
     setAgreeList(temp);
   };
 
+  const goNext = () => {
+    if (!isTotalCheck) {
+      Alert.alert('약관 동의 해라', '약관 두개 동의 하라고');
+      return;
+    }
+    navigation.navigate('preference');
+  };
+
   return (
     <s.Container>
       <s.TextWrapper>
@@ -64,19 +72,29 @@ const TermsOfUse = () => {
           </TextComponent>
         </s.TotalAgreeBox>
         {agreeList.map((v, i) => (
-          <PartialAgreement {...v} onPress={() => onHandleSelect(i)} />
+          <PartialAgreement
+            key={v.label}
+            {...v}
+            navigation={navigation}
+            onPress={() => onHandleSelect(i)}
+          />
         ))}
       </s.AgreementWrapper>
 
       <s.ContinueButtonBox>
-        <Button.Gradient label="계속하기" onPress={() => console.log('짜잔')} />
+        <Button.Gradient label="계속하기" onPress={goNext} />
       </s.ContinueButtonBox>
     </s.Container>
   );
 };
 
 const PartialAgreement = (props: IAgreementButtonType) => {
+  const {navigation} = props;
   const {isRequired, label, isAgree, onPress} = props;
+
+  const onNavigate = () => {
+    navigation.navigate('termsOfUseDetail', {label});
+  };
 
   return (
     <s.PartialAgreementWrapper>
@@ -90,7 +108,7 @@ const PartialAgreement = (props: IAgreementButtonType) => {
           </TextComponent>
           <TextComponent fontType="buttonMedium">{label}</TextComponent>
         </s.PartialTextBox>
-        <s.IconButtonWrapper>
+        <s.IconButtonWrapper onPress={onNavigate}>
           <ArrowIcons.ChevronRight color={theme.color.neutral300} />
         </s.IconButtonWrapper>
       </s.PartialAgreementBox>
