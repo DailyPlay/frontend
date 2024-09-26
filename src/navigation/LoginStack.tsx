@@ -8,6 +8,7 @@ import Introduction from '@screens/Introduction';
 import TermsOfUse from '@/screens/TermsOfUse';
 import TermsOfUseDetail from '@/screens/TermsOfUseDetail';
 import Preference from '@/screens/Preference';
+import {loginStackMenu} from '@/constants/navigatorMenu';
 
 const Stack = createStackNavigator();
 
@@ -21,11 +22,18 @@ const LoginStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName="introduction">
-      <Stack.Screen name={'introduction'} component={Introduction} />
-      <Stack.Screen name={'termsOfUse'} component={TermsOfUse} />
+      initialRouteName={loginStackMenu.introduction.name}>
       <Stack.Screen
-        name={'termsOfUseDetail'}
+        name={loginStackMenu.introduction.name}
+        component={Introduction}
+      />
+      <Stack.Screen
+        name={loginStackMenu.termsOfUse.name}
+        component={TermsOfUse}
+        options={{gestureEnabled: false}}
+      />
+      <Stack.Screen
+        name={loginStackMenu.termsOfUseDetail.name}
         component={TermsOfUseDetail}
         options={({
           navigation,
@@ -43,7 +51,11 @@ const LoginStack = () => {
             }),
         })}
       />
-      <Stack.Screen name={'preference'} component={Preference} />
+      <Stack.Screen
+        name={loginStackMenu.preference.name}
+        component={Preference}
+        options={{gestureEnabled: false}}
+      />
     </Stack.Navigator>
   );
 };
