@@ -10,9 +10,9 @@ import {ThemeProvider} from '@emotion/react';
 import {initializeKakaoSDK} from '@react-native-kakao/core';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
-import theme from '@/theme/theme';
+import theme from '@theme/theme';
 import Navigation from './src/navigation';
-import {ModalProvider} from '@/components/Modal/ModalContext';
+import {ModalProvider} from '@components/Modal/ModalContext';
 
 function App(): React.JSX.Element {
   initializeKakaoSDK(`${process.env.RN_APP_KAKAO_NATIVE_KEY}`);

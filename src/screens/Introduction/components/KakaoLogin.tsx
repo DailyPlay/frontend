@@ -3,16 +3,17 @@ import {Alert} from 'react-native';
 import {login, me} from '@react-native-kakao/user';
 import {useNavigation} from '@react-navigation/native';
 
-import {loginStackMenu} from '@constants/navigatorMenu';
-
 import {LoginIcon} from '../style';
+import {
+  loginStackMenu,
+  LoginStackNavigationProp,
+} from '@navigation/LoginStack/loginStackType';
 
 // import icon
 import LoginSymbol from '@assets/icons/loginSymbol';
-import {RootStackNavigationProp} from '@type/rootstackParamType';
 
 const KakaoLoginButton = () => {
-  const navigation = useNavigation<RootStackNavigationProp>();
+  const navigation = useNavigation<LoginStackNavigationProp>();
   const onPress = async () => {
     try {
       const res = await login();

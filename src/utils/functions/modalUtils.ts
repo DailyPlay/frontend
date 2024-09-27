@@ -1,4 +1,5 @@
-import {useModal} from '@/components/Modal/ModalContext';
+import {useModal} from '@components/Modal/ModalContext';
+
 import {
   diaryDeleteMessage,
   diaryExistingMessage,
@@ -11,7 +12,7 @@ import {
   notificationsPermissionSettingsMessage,
   useNotificationsMessage,
   withdrawalMessage,
-} from '@/constants';
+} from '@constants/modal';
 
 type useModalUtilsProps = () => void;
 
