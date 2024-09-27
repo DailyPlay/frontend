@@ -1,7 +1,7 @@
 import React from 'react';
 import * as s from './style';
 import TextComponent from '../Text';
-import theme from '@/theme/theme';
+import theme from '@theme/theme';
 import {IButtonProps} from './type';
 
 const Default = (props: IButtonProps) => {

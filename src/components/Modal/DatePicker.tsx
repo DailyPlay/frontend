@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/native';
 import {Modal, Pressable} from 'react-native';
-import theme from '@/theme/theme';
+import theme from '@theme/theme';
 import DatePicker from 'react-native-date-picker';
-import CloseIcons from '@/assets/icons/x-close.svg';
+import CloseIcons from '@assets/icons/x-close.svg';
 import TextComponent from '../Text';
 import Button from '../Button';
 

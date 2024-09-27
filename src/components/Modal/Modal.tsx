@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/native';
 import {Modal} from 'react-native';
-import theme from '@/theme/theme';
+import theme from '@theme/theme';
 import TextComponent from '../Text';
 
 export interface ModalComponentProps {

@@ -3,13 +3,13 @@ import {LayoutChangeEvent} from 'react-native';
 import * as s from './style';
 
 // import component
-import theme from '@/theme/theme';
-import TextComponent from '@/components/Text';
-import Button from '@/components/Button';
+import theme from '@theme/theme';
+import TextComponent from '@components/Text';
+import Button from '@components/Button';
 
 // import icon
-import GenreSingleIcon from '@/assets/icons/genreSingle';
-import GenreGradientIcons from '@/assets/icons/genreGradientIcon';
+import GenreSingleIcon from '@assets/icons/genreSingle';
+import GenreGradientIcons from '@assets/icons/genreGradientIcon';
 // import useModal from '@/hooks/useModal';
 
 const Preference = () => {

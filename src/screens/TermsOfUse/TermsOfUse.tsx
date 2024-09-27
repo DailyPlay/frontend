@@ -3,13 +3,13 @@ import {Alert, Image} from 'react-native';
 
 // import style
 import * as s from './style';
-import theme from '@/theme/theme';
+import theme from '@theme/theme';
 
 // import component
-import Button from '@/components/Button';
-import ArrowIcons from '@/assets/icons/arrow';
-import TextComponent from '@/components/Text';
-import CheckBoxIcons from '@/assets/icons/checkBox';
+import Button from '@components/Button';
+import ArrowIcons from '@assets/icons/arrow';
+import TextComponent from '@components/Text';
+import CheckBoxIcons from '@assets/icons/checkBox';
 
 // import type
 import {
@@ -82,7 +82,11 @@ const TermsOfUse = ({navigation}: {navigation: any}) => {
       </s.AgreementWrapper>
 
       <s.ContinueButtonBox>
-        <Button.Gradient label="계속하기" onPress={goNext} />
+        <Button.Gradient
+          label="계속하기"
+          disabled={!isTotalCheck}
+          onPress={goNext}
+        />
       </s.ContinueButtonBox>
     </s.Container>
   );
