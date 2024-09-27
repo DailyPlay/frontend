@@ -10,11 +10,11 @@
       "@navigation/*": ["navigation/*"],
       "@screens/*": ["screens/*"],
       "@theme/*": ["theme/*"],
-      "@constants/*": ["constants/*"],
       "@type/*": ["type/*"],
       "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"],
-      "@config": ["config"]
+      "@config": ["config"],
+      "@constants/*": ["constants/*"]
     }
   }
 }

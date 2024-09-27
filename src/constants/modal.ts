@@ -1,4 +1,4 @@
-const networkErrorMessage = {
+export const networkErrorMessage = {
   TITLE: '네트워크에 연결할 수 없어요.',
   CONTENTS: [
     '하루플레이를 이용하기 위해서는',
@@ -10,7 +10,7 @@ const networkErrorMessage = {
   },
 } as const;
 
-const newUpdateMessage = {
+export const newUpdateMessage = {
   TITLE: '새로운 업데이트가 있어요.',
   CONTENTS: ['원활한 이용을 위해서', '업데이트를 진행해주세요.'],
   BUTTONS: {
@@ -18,7 +18,7 @@ const newUpdateMessage = {
   },
 } as const;
 
-const useNotificationsMessage = {
+export const useNotificationsMessage = {
   TITLE: '알림을 사용해 보세요!',
   CONTENTS: ['일기를 매일 쓸 수 있도록', '하루플레이가 도움을 드릴게요.'],
   BUTTONS: {
@@ -27,7 +27,7 @@ const useNotificationsMessage = {
   },
 } as const;
 
-const notificationsPermissionSettingsMessage = {
+export const notificationsPermissionSettingsMessage = {
   TITLE: '알림 권한 설정 안내',
   CONTENTS: ['설정한 시간에 맞춰', '알림을 받기 위해서 권한을 설정해 주세요.'],
   BUTTONS: {
@@ -36,7 +36,7 @@ const notificationsPermissionSettingsMessage = {
   },
 } as const;
 
-const diaryDeleteMessage = {
+export const diaryDeleteMessage = {
   TITLE: '일기를 삭제할까요?',
   CONTENTS: [
     '삭제된 일기는 다시 불러올 수 없습니다.',
@@ -48,7 +48,7 @@ const diaryDeleteMessage = {
   },
 } as const;
 
-const diaryExistingMessage = {
+export const diaryExistingMessage = {
   TITLE: '기존에 작성된 일기가 있어요.',
   CONTENTS: [
     '선택하신 날짜에 기존에',
@@ -61,7 +61,7 @@ const diaryExistingMessage = {
   },
 } as const;
 
-const diaryStopEditingMessage = {
+export const diaryStopEditingMessage = {
   TITLE: '수정을 그만둘까요?',
   CONTENTS: [
     '지금까지 수정한 내용은 저장되지 않습니다.',
@@ -73,7 +73,7 @@ const diaryStopEditingMessage = {
   },
 } as const;
 
-const diaryInProgressMessage = {
+export const diaryInProgressMessage = {
   TITLE: '작성 중이던 일기가 있어요!',
   CONTENTS: [
     '작성하던 일기를 이어서 작성할까요?',
@@ -86,7 +86,7 @@ const diaryInProgressMessage = {
   },
 } as const;
 
-const musicReRecommendMessage = {
+export const musicReRecommendMessage = {
   TITLE: '노래 재추천이 필요하신가요?',
   CONTENTS: [
     '재추천을 위해선 영상을 시청해야합니다.',
@@ -98,7 +98,7 @@ const musicReRecommendMessage = {
   },
 } as const;
 
-const guestDataDeleteMessage = {
+export const guestDataDeleteMessage = {
   TITLE: '게스트 데이터가 삭제됩니다.',
   CONTENTS: [
     '로그인을 계속하실 경우',
@@ -112,7 +112,7 @@ const guestDataDeleteMessage = {
   },
 } as const;
 
-const withdrawalMessage = {
+export const withdrawalMessage = {
   TITLE: '탈퇴',
   CONTENTS: ['정말 탈퇴 하시겠습니까?'],
   BUTTONS: {
@@ -120,17 +120,3 @@ const withdrawalMessage = {
     LABEL2: '확인',
   },
 } as const;
-
-export {
-  networkErrorMessage,
-  newUpdateMessage,
-  useNotificationsMessage,
-  notificationsPermissionSettingsMessage,
-  diaryDeleteMessage,
-  diaryExistingMessage,
-  diaryStopEditingMessage,
-  diaryInProgressMessage,
-  musicReRecommendMessage,
-  guestDataDeleteMessage,
-  withdrawalMessage,
-};

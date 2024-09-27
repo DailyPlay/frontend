@@ -2,15 +2,15 @@ import React from 'react';
 import {RouteProp} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Header from '@/components/Header';
+import Header from '@components/Header';
 
 import Introduction from '@screens/Introduction';
-import TermsOfUse from '@/screens/TermsOfUse';
-import TermsOfUseDetail from '@/screens/TermsOfUseDetail';
-import Preference from '@/screens/Preference';
-import {loginStackMenu} from '@/constants/navigatorMenu';
+import TermsOfUse from '@screens/TermsOfUse';
+import TermsOfUseDetail from '@screens/TermsOfUseDetail';
+import Preference from '@screens/Preference';
+import {loginStackMenu, TLoginStackParamList} from './loginStackType';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<TLoginStackParamList>();
 
 // type TParams = {
 //   termsOfUseDetail: {

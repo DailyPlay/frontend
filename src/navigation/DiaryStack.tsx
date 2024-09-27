@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import TemplateScreen from '@screens/TemplateScreen';
-import Header from '@/components/Header';
+import Header from '@components/Header';
 import {Alert} from 'react-native';
 
 const Stack = createStackNavigator();
