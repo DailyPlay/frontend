@@ -1,13 +1,13 @@
 import React from 'react';
 
 import * as s from './style';
-import TextComponent from '@/components/Text';
-import Button from '@/components/Button';
-import WeatherIcons from '@/assets/icons/weather';
-import CheckBoxIcons from '@/assets/icons/checkBox';
-import DefaultIcons from '@/assets/icons/default';
-import ArrowIcons from '@/assets/icons/arrow';
-import MusicIcons from '@/assets/icons/music';
+import TextComponent from '@components/Text';
+import Button from '@components/Button';
+import WeatherIcons from '@assets/icons/weather';
+import CheckBoxIcons from '@assets/icons/checkBox';
+import DefaultIcons from '@assets/icons/default';
+import ArrowIcons from '@assets/icons/arrow';
+import MusicIcons from '@assets/icons/music';
 
 const Main = ({navigation}: {navigation: any}) => {
   return (

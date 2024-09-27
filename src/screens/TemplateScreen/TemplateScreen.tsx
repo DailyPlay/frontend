@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import * as s from './style';
-import TextComponent from '@/components/Text';
-import Button from '@/components/Button';
-import WeatherIcons from '@/assets/icons/weather';
+import TextComponent from '@components/Text';
+import Button from '@components/Button';
+import WeatherIcons from '@assets/icons/weather';
 // import useModal from '@/hooks/useModal';
 import {Pressable, Text} from 'react-native';
-import useModalUtils from '@/utils/functions/modalUtils';
-import DatePickerComponent from '@/components/Modal/DatePicker';
-import useModal from '@/hooks/useModal';
+import DatePickerComponent from '@components/Modal/DatePicker';
+import useModalUtils from '@utils/functions/modalUtils';
+import useModal from '@hooks/useModal';
 
 const Template = () => {
   const {networkErrorModal} = useModalUtils();

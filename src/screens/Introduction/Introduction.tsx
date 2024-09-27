@@ -1,9 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {Dimensions, Image} from 'react-native';
-import * as s from './style';
-import TextComponent from '@/components/Text';
 
-const Template = ({navigation}: {navigation: any}) => {
+// import local
+import * as s from './style';
+
+// import Component
+import TextComponent from '@components/Text';
+import KakaoLoginButton from './components/KakaoLogin';
+
+const Introduction = () => {
   const [imgHeight, setImgHeight] = useState(0);
 
   const backgroundImage = require('@assets/images/introductionBackground.png');
@@ -30,11 +35,11 @@ const Template = ({navigation}: {navigation: any}) => {
 
       {/* 로그인/회원가입 */}
       <s.IconWrapper>
-        <s.LoginIcon />
-        <s.LoginIcon />
-        <s.LoginIcon />
+        <s.LoginIcon bgColor="white" border={true} />
+        <s.LoginIcon bgColor="black" />
+        <KakaoLoginButton />
       </s.IconWrapper>
-      <s.GuestTextBox onPress={() => navigation.navigate('termsOfUse')}>
+      <s.GuestTextBox>
         <TextComponent fontType="titleSmall" color="#667580">
           또는 게스트로 시작하기
         </TextComponent>
@@ -43,4 +48,4 @@ const Template = ({navigation}: {navigation: any}) => {
   );
 };
 
-export default Template;
+export default Introduction;

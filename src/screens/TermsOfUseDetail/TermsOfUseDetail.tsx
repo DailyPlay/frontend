@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import * as s from './style';
-import TextComponent from '@/components/Text';
-import ArrowIcons from '@/assets/icons/arrow';
-import theme from '@/theme/theme';
+import TextComponent from '@components/Text';
+import ArrowIcons from '@assets/icons/arrow';
+import theme from '@theme/theme';
 
 const TermsOfUseDetail = () => {
   const [isDropdown, setIsDropdown] = useState(false);

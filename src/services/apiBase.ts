@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
-import {API_SERVER} from '@/config';
-import storageService from '@/utils//functions/storageService';
+import {API_SERVER} from '@config';
+import storageService from '@utils//functions/storageService';
 
 interface IApiRes<T> {
   // 0 === 정상
