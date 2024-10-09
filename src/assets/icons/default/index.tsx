@@ -22,6 +22,9 @@ import Filter from './filter.svg';
 import DotsVertical from './dotsVertical.svg';
 import SwitchVertical from './switchVertical.svg';
 import SwitchVerticalReverse from './switchVerticalReverse.svg';
+import SelectedDiary from './selected-diary.svg';
+import Diary from './diary.svg';
+import Empty from './empty.svg';
 
 /**
  *  free svg icons from https://www.svgrepo.com/
@@ -58,6 +61,9 @@ const DefaultIcons = {
   SwitchVertical: (props: IconProps) => createIcon(props, SwitchVertical),
   SwitchVerticalReverse: (props: IconProps) =>
     createIcon(props, SwitchVerticalReverse),
+  SelectedDiary: (props: IconProps) => createIcon(props, SelectedDiary),
+  Diary: (props: IconProps) => createIcon(props, Diary),
+  Empty: (props: IconProps) => createIcon(props, Empty),
 };
 
 const createIcon: React.FC = (props: IconProps, Svg: React.FC<SvgProps>) => {

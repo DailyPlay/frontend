@@ -13,6 +13,10 @@ const Main = ({navigation}: {navigation: any}) => {
   return (
     <s.Container>
       <TextComponent fontType="bodyLarge">메인 화면</TextComponent>
+      <Button.Default
+        label="월간보기"
+        onPress={() => navigation.navigate('TabNavigatorScreen')}
+      />
       <s.ButtonWrapper>
         <s.OnlyTextLogo
           source={require('@assets/images/logo/onlyTextLogo.png')}

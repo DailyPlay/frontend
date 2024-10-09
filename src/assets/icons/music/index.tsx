@@ -3,6 +3,7 @@ import {SvgProps} from 'react-native-svg';
 
 import Play from './play.svg';
 import PlayList from './playList.svg';
+import PlayList2 from './playList2.svg';
 import Recording from './recoding.svg';
 import Repeat from './repeat.svg';
 import Shuffle from './shuffle.svg';
@@ -26,6 +27,7 @@ interface IconProps extends SvgProps {
 const MusicIcons = {
   Play: (props: IconProps) => createIcon(props, Play),
   PlayList: (props: IconProps) => createIcon(props, PlayList),
+  PlayList2: (props: IconProps) => createIcon(props, PlayList2),
   Recording: (props: IconProps) => createIcon(props, Recording),
   Repeat: (props: IconProps) => createIcon(props, Repeat),
   Shuffle: (props: IconProps) => createIcon(props, Shuffle),
