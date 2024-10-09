@@ -8,7 +8,11 @@ import * as s from './style';
 import TextComponent from '@components/Text';
 import KakaoLoginButton from './components/KakaoLogin';
 
-const Introduction = () => {
+interface IntroductionProps {
+  navigation: any;
+}
+
+const Introduction = ({navigation}: IntroductionProps) => {
   const [imgHeight, setImgHeight] = useState(0);
 
   const backgroundImage = require('@assets/images/introductionBackground.png');
@@ -39,7 +43,7 @@ const Introduction = () => {
         <s.LoginIcon bgColor="black" />
         <KakaoLoginButton />
       </s.IconWrapper>
-      <s.GuestTextBox>
+      <s.GuestTextBox onPress={() => navigation.navigate('mainStack')}>
         <TextComponent fontType="titleSmall" color="#667580">
           또는 게스트로 시작하기
         </TextComponent>
