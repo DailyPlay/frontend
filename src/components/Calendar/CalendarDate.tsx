@@ -3,6 +3,7 @@ import * as s from './style';
 import {DateProps} from '@utils/functions/calendar';
 import {SelectdDateProps} from './Calendar';
 import DefaultIcons from '@assets/icons/default';
+import Button from '../Button';
 
 interface CalendarDateProps {
   isWeeklyView: boolean;
@@ -14,12 +15,14 @@ interface CalendarDateProps {
     selectedDate,
     isDiaryWritten,
   }: SelectdDateProps) => void;
+  calendarSelectedDate: SelectdDateProps | null;
 }
 function CalendarDate({
   isWeeklyView,
   weekdays,
   date,
   handleSelectdDate,
+  calendarSelectedDate,
 }: CalendarDateProps) {
   return (
     <s.DateContainer>
@@ -58,6 +61,14 @@ function CalendarDate({
               <s.DateText>{d.date}</s.DateText>
             </s.Date>
           ))}
+      {!calendarSelectedDate?.isDiaryWritten && (
+        <s.ButtonWrapper>
+          <Button.Gradient
+            label="일기쓰기"
+            onPress={() => console.log('Press')}
+          />
+        </s.ButtonWrapper>
+      )}
     </s.DateContainer>
   );
 }

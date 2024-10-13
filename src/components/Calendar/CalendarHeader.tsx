@@ -9,7 +9,11 @@ interface CalendarHeaderProps extends CalendarUtilsProps {
   month: number;
   handleDecreseMonth: () => void;
   handleIncreseMonth: () => void;
+  handleIncreaseWeek: () => void;
+  handleDecreaseWeek: () => void;
   handleRefreshToday: () => void;
+  isWeeklyView?: boolean;
+  show: () => void;
 }
 
 function CalendarHeader({
@@ -17,20 +21,26 @@ function CalendarHeader({
   month,
   handleDecreseMonth,
   handleIncreseMonth,
+  handleIncreaseWeek,
+  handleDecreaseWeek,
   handleRefreshToday,
+  isWeeklyView = false,
+  show,
 }: CalendarHeaderProps) {
   return (
     <s.HeaderContainer>
       <s.HeaderTitleContainer>
-        <s.HeaderDecreaseMonth onPress={handleDecreseMonth}>
+        <s.HeaderDecreaseMonth
+          onPress={isWeeklyView ? handleDecreaseWeek : handleDecreseMonth}>
           <ArrowIcons.ChevronLeft />
         </s.HeaderDecreaseMonth>
-        <s.HeaderTitle>
+        <s.HeaderTitle onPress={show}>
           <s.HeaderTitleText>{`${year
             .toString()
             .slice(2)}년 ${month}월`}</s.HeaderTitleText>
         </s.HeaderTitle>
-        <s.HeaderIncreaseMonth onPress={handleIncreseMonth}>
+        <s.HeaderIncreaseMonth
+          onPress={isWeeklyView ? handleIncreaseWeek : handleIncreseMonth}>
           <ArrowIcons.ChevronRight />
         </s.HeaderIncreaseMonth>
       </s.HeaderTitleContainer>

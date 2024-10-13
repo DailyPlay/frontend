@@ -41,7 +41,8 @@ class CalendarUtils {
   };
 
   public getCalendarDays({year, month}: CalendarUtilsProps): DateProps[] {
-    const lastDate = new Date(year, month, 0).getDate();
+    const newDate = new Date(Date.UTC(year, month, 0));
+    const lastDate = newDate.getDate();
     const lastDateOfLastMonth = this.getLastDayOfPreviousMonth({year, month});
     const firstDayOfMonth = this.getFirstDayOfMonth({year, month});
     const arrExtraDateOfLastMonth =
@@ -50,26 +51,43 @@ class CalendarUtils {
         : Array.from({length: firstDayOfMonth}, (_, i) => ({
             year: month === 1 ? year - 1 : year,
             month: month === 1 ? 12 : month - 1,
-            date: lastDateOfLastMonth - firstDayOfMonth + i,
+            date: lastDateOfLastMonth - firstDayOfMonth + i + 1,
             isSelected: false,
-            isDiaryWritten: false,
+            isDiaryWritten: true,
           }));
     const arrDateOfMonth = Array.from({length: lastDate}, (_, i) => ({
       year,
       month,
       date: i + 1,
       isSelected: this.currentDateCheck({year, month, date: i + 1}),
-      isDiaryWritten: true,
+      isDiaryWritten: false,
     }));
-    return [...arrExtraDateOfLastMonth, ...arrDateOfMonth];
+    const daysToAddFromNextMonthLength =
+      7 - ((arrExtraDateOfLastMonth.length + arrDateOfMonth.length) % 7);
+    const daysToAddFromNextMonth =
+      daysToAddFromNextMonthLength === 7
+        ? []
+        : Array.from({length: daysToAddFromNextMonthLength}, (_, i) => ({
+            year: month === 12 ? year + 1 : year,
+            month: month === 12 ? 1 : month + 1,
+            date: i + 1,
+            isSelected: false,
+            isDiaryWritten: false,
+          }));
+
+    return [
+      ...arrExtraDateOfLastMonth,
+      ...arrDateOfMonth,
+      ...daysToAddFromNextMonth,
+    ];
   }
 
   private getLastDayOfPreviousMonth({year, month}: CalendarUtilsProps): number {
-    return new Date(year, month - 1, 0).getDate();
+    return new Date(Date.UTC(year, month - 1, 0)).getDate();
   }
 
   private getFirstDayOfMonth({year, month}: CalendarUtilsProps): number {
-    return new Date(year, month - 1, 1).getDay();
+    return new Date(Date.UTC(year, month - 1, 1)).getDay();
   }
 
   public getWeeklyCalendar({
@@ -78,12 +96,33 @@ class CalendarUtils {
     selectedDate,
     copyDate,
   }: WeeklyCalendarProps) {
-    const getDay = new Date(
+    const newDate = new Date(
+      Date.UTC(selectedYear, selectedMonth - 1, selectedDate),
+    );
+    const getDay = newDate.getDay();
+    let index = this.findLastIndex({
       selectedYear,
-      selectedMonth - 1,
+      selectedMonth,
       selectedDate,
-    ).getDay();
-    const index = this.findLastIndex({selectedDate, copyDate});
+      copyDate,
+    });
+
+    if (index === -1) {
+      const newCalendarDays = this.getCalendarDays({
+        year: selectedYear,
+        month: selectedMonth,
+      });
+
+      index = this.findLastIndex({
+        selectedYear,
+        selectedMonth,
+        selectedDate,
+        copyDate: newCalendarDays,
+      });
+
+      copyDate = newCalendarDays;
+    }
+
     const startOfWeek = index - getDay;
     return copyDate.slice(startOfWeek, startOfWeek + 7).map(d => ({
       ...d,
@@ -91,10 +130,63 @@ class CalendarUtils {
     }));
   }
 
-  private findLastIndex({selectedDate, copyDate}: FindLastIndexProps) {
+  public increaseWeek = ({
+    selectedYear,
+    selectedMonth,
+    selectedDate,
+    copyDate,
+  }: WeeklyCalendarProps) => {
+    const newDate = new Date(
+      Date.UTC(selectedYear, selectedMonth - 1, selectedDate),
+    );
+    newDate.setDate(newDate.getDate() + 7);
+    const updateYear = newDate.getFullYear();
+    const updateMonth = newDate.getMonth() + 1;
+    const updateDate = newDate.getDate();
+
+    return this.getWeeklyCalendar({
+      selectedYear: updateYear,
+      selectedMonth: updateMonth,
+      selectedDate: updateDate,
+      copyDate,
+    });
+  };
+
+  public decreaseWeek = ({
+    selectedYear,
+    selectedMonth,
+    selectedDate,
+    copyDate,
+  }: WeeklyCalendarProps) => {
+    const newDate = new Date(
+      Date.UTC(selectedYear, selectedMonth - 1, selectedDate),
+    );
+    newDate.setDate(newDate.getDate() - 7);
+    const updateYear = newDate.getFullYear();
+    const updateMonth = newDate.getMonth() + 1;
+    const updateDate = newDate.getDate();
+
+    return this.getWeeklyCalendar({
+      selectedYear: updateYear,
+      selectedMonth: updateMonth,
+      selectedDate: updateDate,
+      copyDate,
+    });
+  };
+
+  private findLastIndex({
+    selectedYear,
+    selectedMonth,
+    selectedDate,
+    copyDate,
+  }: WeeklyCalendarProps) {
     const lastIndex = copyDate.length - 1;
     for (let i = lastIndex; i >= 0; i--) {
-      if (copyDate[i].date === selectedDate) {
+      if (
+        copyDate[i].year === selectedYear &&
+        copyDate[i].month === selectedMonth &&
+        copyDate[i].date === selectedDate
+      ) {
         return i;
       }
     }

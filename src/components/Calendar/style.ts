@@ -85,3 +85,10 @@ export const DateIconBox = styled.View<{isSelected: boolean}>`
 `;
 
 export const DateText = styled.Text``;
+
+export const ButtonWrapper = styled.View`
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+`;
