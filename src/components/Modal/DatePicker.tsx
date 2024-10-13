@@ -17,7 +17,7 @@ interface DatePickerComponentProps {
   mode?: 'date' | 'time' | 'datetime';
 }
 
-function DatePickerComponent({
+const DatePickerComponent = ({
   isVisible,
   hide,
   date,
@@ -25,9 +25,9 @@ function DatePickerComponent({
   onConfirmDate,
   title = '날짜 선택',
   mode = 'date',
-}: DatePickerComponentProps) {
+}: DatePickerComponentProps) => {
   return (
-    <Modal transparent visible={isVisible} animationType={'slide'}>
+    <Modal transparent visible={isVisible} animationType={'none'}>
       <StyledModalBackground>
         <StyledModalContainer>
           <StyledModalHeader>
@@ -51,7 +51,7 @@ function DatePickerComponent({
       </StyledModalBackground>
     </Modal>
   );
-}
+};
 
 export default DatePickerComponent;
 
