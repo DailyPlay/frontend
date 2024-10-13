@@ -41,19 +41,31 @@ const Calendar = () => {
   };
 
   const handleConfirmDate = () => {
-    console.log('Selected Date:!!', date);
     const newDate = new Date(
       Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()),
     );
     setCalendarDate({
       year: newDate.getFullYear(),
       month: newDate.getMonth() + 1,
-      date: calendarUtils.getCalendarDays({
-        year: newDate.getFullYear(),
-        month: newDate.getMonth() + 1,
-      }),
+      date: calendarUtils
+        .getCalendarDays({
+          year: newDate.getFullYear(),
+          month: newDate.getMonth() + 1,
+        })
+        .map(item => ({
+          ...item,
+          isSelected:
+            item.year === newDate.getFullYear() &&
+            item.month === newDate.getMonth() + 1 &&
+            item.date === newDate.getDate(),
+        })),
     });
-    console.log('newDate', newDate);
+    setCalendarSelectedDate({
+      selectedYear: newDate.getFullYear(),
+      selectedMonth: newDate.getMonth() + 1,
+      selectedDate: newDate.getDate(),
+      isDiaryWritten: false,
+    });
     // setCalendarDate({})
     hide();
   };
