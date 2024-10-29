@@ -18,7 +18,7 @@ const SelectedDiaryIcon = () =>
   (<DefaultIcons.SelectedDiary />) as React.ReactNode;
 const PlaylistIcon = () => (<MusicIcons.PlayList2 />) as React.ReactNode;
 const SelectedPlaylistIcon = () =>
-  (<MusicIcons.PlayList2 />) as React.ReactNode;
+  (<MusicIcons.SelectedPlayList2 />) as React.ReactNode;
 
 const TabNavigator = () => {
   return (

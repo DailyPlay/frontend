@@ -6,6 +6,7 @@ import PlayList from './playList.svg';
 import PlayList2 from './playList2.svg';
 import Recording from './recoding.svg';
 import Repeat from './repeat.svg';
+import SelectedPlayList2 from './selectedPlayList2.svg';
 import Shuffle from './shuffle.svg';
 import SkipBack from './skipBack.svg';
 import SkipForward from './skipForward.svg';
@@ -30,6 +31,7 @@ const MusicIcons = {
   PlayList2: (props: IconProps) => createIcon(props, PlayList2),
   Recording: (props: IconProps) => createIcon(props, Recording),
   Repeat: (props: IconProps) => createIcon(props, Repeat),
+  SelectedPlayList2: (props: IconProps) => createIcon(props, SelectedPlayList2),
   Shuffle: (props: IconProps) => createIcon(props, Shuffle),
   SkipBack: (props: IconProps) => createIcon(props, SkipBack),
   SkipForward: (props: IconProps) => createIcon(props, SkipForward),
