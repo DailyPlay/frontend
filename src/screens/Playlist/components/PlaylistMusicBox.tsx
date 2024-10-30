@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {TouchableOpacity} from 'react-native';
-import * as s from './style';
+import * as s from './playlistMusicBoxStyle.ts';
 import theme from '@theme/theme.ts';
-import {PlaylistMusicBoxProps} from '@screens/Playlist/components/PlaylistMusicBoxProps.ts';
+import {PlaylistMusicBoxProps} from '@screens/Playlist/components/playlistMusicBoxProps.ts';
 import CheckBoxIcons from '@assets/icons/checkBox';
 import DefaultIcons from '@assets/icons/default';
 import MusicIcons from '@assets/icons/music';

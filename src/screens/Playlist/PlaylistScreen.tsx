@@ -5,10 +5,14 @@ import DefaultIcons from '@assets/icons/default';
 import theme from '@theme/theme.ts';
 import PlaylistMusicBox from '@screens/Playlist/components/PlaylistMusicBox.tsx';
 import TextComponent from '@components/Text';
+import BottomPlayBar from '@screens/Playlist/components/BottomPlayBar.tsx';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const PlaylistScreen = () => {
+  const insets = useSafeAreaInsets();
+
   return (
-    <s.Container>
+    <s.Container style={{marginBottom: insets.bottom}}>
       <s.FilterContainer>
         <s.FilterWrapper>
           <DefaultIcons.Filter size={15} />
@@ -89,6 +93,8 @@ const PlaylistScreen = () => {
           tag={['태그1']}
         />
       </s.SongContainer>
+
+      <BottomPlayBar playStatus={'Playing'} song={{}} />
     </s.Container>
   );
 };

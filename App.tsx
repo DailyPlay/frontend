@@ -13,6 +13,7 @@ import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import theme from '@theme/theme';
 import Navigation from './src/navigation';
 import {ModalProvider} from '@components/Modal/ModalContext';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 function App(): React.JSX.Element {
   initializeKakaoSDK(`${process.env.RN_APP_KAKAO_NATIVE_KEY}`);
@@ -28,7 +29,9 @@ function App(): React.JSX.Element {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <ModalProvider>
-          <Navigation />
+          <SafeAreaProvider>
+            <Navigation />
+          </SafeAreaProvider>
         </ModalProvider>
       </ThemeProvider>
     </QueryClientProvider>
