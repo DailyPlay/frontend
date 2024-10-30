@@ -36,3 +36,13 @@ export const SpaceBetweenWrapper = styled.View`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const ButtonWrapper = styled.TouchableOpacity`
+  height: 40px;
+  padding: 0 10px;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  border-bottom-width: 1px;
+  border-bottom-color: ${({theme}) => theme.color.gray100};
+`;
