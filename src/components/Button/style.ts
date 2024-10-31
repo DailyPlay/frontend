@@ -2,6 +2,7 @@ import styled from '@emotion/native';
 import LinearGradient from 'react-native-linear-gradient';
 
 export const ButtonContainer = styled.TouchableOpacity<{disabled?: boolean}>`
+  width: 100%;
   border-radius: 10px;
   padding: 19px 0;
   background-color: ${({theme, disabled}) =>

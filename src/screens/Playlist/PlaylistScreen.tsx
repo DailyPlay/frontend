@@ -6,6 +6,7 @@ import theme from '@theme/theme.ts';
 import PlaylistMusicBox from '@screens/Playlist/components/PlaylistMusicBox.tsx';
 import TextComponent from '@components/Text';
 import BottomPlayBar from '@screens/Playlist/components/BottomPlayBar.tsx';
+import PlaylistIntroModal from '@screens/Playlist/components/PlaylistIntroModal.tsx';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const PlaylistScreen = () => {
@@ -95,6 +96,8 @@ const PlaylistScreen = () => {
       </s.SongContainer>
 
       <BottomPlayBar playStatus={'Playing'} song={{}} />
+
+      <PlaylistIntroModal />
     </s.Container>
   );
 };
