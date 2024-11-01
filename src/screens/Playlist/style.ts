@@ -16,7 +16,7 @@ export const FilterContainer = styled.View`
   border-bottom-color: ${({theme}) => theme.color.gray100};
 `;
 
-export const FilterWrapper = styled.View`
+export const FilterButtonWrapper = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: center;
   align-items: center;

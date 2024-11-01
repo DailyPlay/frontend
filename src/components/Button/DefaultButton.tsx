@@ -5,16 +5,24 @@ import theme from '@theme/theme';
 import {IButtonProps} from './type';
 
 const Default = (props: IButtonProps) => {
-  const {label, disabled, onPress} = props;
+  const {label, disabled, onPress, width, type} = props;
 
   return (
     <s.ButtonContainer
+      width={width}
+      type={type}
       disabled={disabled}
       activeOpacity={disabled ? 1 : 0}
       onPress={disabled ? undefined : onPress}>
       <TextComponent
         fontType="buttonLarge"
-        color={disabled ? theme.color.neutral500 : theme.color.white}>
+        color={
+          type === 'Gray'
+            ? theme.color.neutral500
+            : disabled
+            ? theme.color.neutral500
+            : theme.color.white
+        }>
         {label}
       </TextComponent>
     </s.ButtonContainer>
