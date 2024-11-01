@@ -4,7 +4,7 @@ export const ModalContainer = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(34, 34, 34, 0.6);
   padding: 22px;
 `;
 
@@ -31,13 +31,4 @@ export const BottomTextWrapper = styled.View`
 
 export const CloseButton = styled.TouchableOpacity`
   align-self: flex-end;
-`;
-
-export const ActionButton = styled.TouchableOpacity`
-  flex: 1;
-  padding: 10px;
-  background-color: #ddd;
-  margin: 5px;
-  border-radius: 5px;
-  align-items: center;
 `;

@@ -1,20 +1,20 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Modal} from 'react-native';
 import * as s from './playlistIntroModalStyle.ts';
 import DefaultIcons from '@assets/icons/default';
 import Button from '@components/Button';
 import TextComponent from '@components/Text';
 
-const PlaylistIntroModal = () => {
-  const [isVisible, setIsVisible] = useState(false);
+interface PlaylistIntroModalProps {
+  isVisible: boolean;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+const PlaylistIntroModal = ({
+  isVisible,
+  setIsVisible,
+}: PlaylistIntroModalProps) => {
   const modalImage = require('@assets/images/playlistModalImage.png');
-
-  useEffect(() => {
-    if (!isVisible) {
-      setIsVisible(true);
-    }
-  }, []);
 
   const handleClose = () => {
     setIsVisible(false);
