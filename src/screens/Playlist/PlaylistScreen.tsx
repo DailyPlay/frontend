@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import * as s from './style';
 import CheckBoxIcons from '@assets/icons/checkBox';
 import DefaultIcons from '@assets/icons/default';
@@ -8,19 +8,25 @@ import TextComponent from '@components/Text';
 import BottomPlayBar from '@screens/Playlist/components/BottomPlayBar.tsx';
 import PlaylistIntroModal from '@screens/Playlist/components/PlaylistIntroModal.tsx';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import PlaylistFilterModal from '@screens/Playlist/components/PlaylistFilterModal.tsx';
 
 const PlaylistScreen = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
   const insets = useSafeAreaInsets();
 
   return (
     <s.Container style={{marginBottom: insets.bottom}}>
       <s.FilterContainer>
-        <s.FilterWrapper>
+        <s.FilterButtonWrapper
+          onPress={() => {
+            setIsFilterVisible(true);
+          }}>
           <DefaultIcons.Filter size={15} />
           <TextComponent fontType={'bodyMedium'} color={theme.color.black}>
             필터
           </TextComponent>
-        </s.FilterWrapper>
+        </s.FilterButtonWrapper>
       </s.FilterContainer>
 
       <s.SongHeatherWrapper>
@@ -97,7 +103,15 @@ const PlaylistScreen = () => {
 
       <BottomPlayBar playStatus={'Playing'} song={{}} />
 
-      <PlaylistIntroModal />
+      <PlaylistIntroModal
+        isVisible={isModalVisible}
+        setIsVisible={setIsModalVisible}
+      />
+
+      <PlaylistFilterModal
+        isVisible={isFilterVisible}
+        setIsVisible={setIsFilterVisible}
+      />
     </s.Container>
   );
 };
