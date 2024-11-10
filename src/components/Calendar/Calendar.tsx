@@ -66,7 +66,6 @@ const Calendar = () => {
       selectedDate: newDate.getDate(),
       isDiaryWritten: false,
     });
-    // setCalendarDate({})
     hide();
   };
 
@@ -179,9 +178,7 @@ const Calendar = () => {
     isDiaryWritten,
   }: SelectdDateProps) => {
     // TODO 여기 isDiaryWritten 부분은 백엔드에서 데이터 받으면 처리하기
-    // console.log(selectedYear, selectedMonth, selectedDate, isDiaryWritten);
-    // console.log(calendarDate.year, calendarDate.month);
-
+    setDate(new Date(Date.UTC(selectedYear, selectedMonth - 1, selectedDate)));
     setCalendarSelectedDate({
       selectedYear,
       selectedMonth,
